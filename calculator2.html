@@ -1,0 +1,77 @@
+ <!DocType html>
+<html>
+<head>
+<title>
+Calculator
+</title>
+<style>
+input[type=text]{
+  width: 17%;
+  padding: 12px 20px;
+ margin:4px 0;
+  border-radius:2px;
+  box-sizing: border-box;
+  background-color:"grey";
+}
+button{
+  width:4%;
+  padding: 5px 10px;
+  margin: 4px 0;
+  border-radius:2px;
+  box-sizing: border-box;
+  background-color:"grey";
+}
+
+#t1{
+background-color:skyblue;
+}
+#t2{
+background-color:tomato;
+}
+</style>
+</head>
+<body>
+<input type="text" id="res"><br>
+<button onclick="getButtonText(this)"  id="t2"  value='(' >(</button>    
+<button  onclick="getButtonText(this)" id='t2' value='CE' >CE</button>    
+<button onclick="getButtonText(this)" id='t2' value=')' >)</button>    
+<button onclick="getButtonText(this)" id='t2' value='C' >C</button> <br>   
+<button onclick="getButtonText(this)" id='t2' value='1' >1</button>    
+<button onclick="getButtonText(this)" id='t2' value='2' >2</button>    
+<button onclick="getButtonText(this)" id='t2' value='3' >3</button>    
+<button onclick="getButtonText(this)" id='t2' value='+' >+</button> <br>   
+<button onclick="getButtonText(this)" id='t2' value='4' >4</button>    
+<button onclick="getButtonText(this)" id='t2' value='5' >5</button>    
+<button onclick="getButtonText(this)" id='t2' value='6' >6</button>    
+<button onclick="getButtonText(this)" id='t2' value='-' >-</button><br>    
+<button onclick="getButtonText(this)" id='t2' value='7' >7</button>    
+<button onclick="getButtonText(this)" id='t2' value='8' >8</button>    
+<button onclick="getButtonText(this)" id='t2' value='9' >9</button>    
+<button onclick="getButtonText(this)" id='t2' value='*' >x</button><br>    
+<button onclick="getButtonText(this)" id='t2' value='.' >.</button>    
+<button onclick="getButtonText(this)" id='t2' value='0' >0</button>    
+<button onclick="getButtonText(this)" id='t2' value='=' >=</button>    
+<button onclick="getButtonText(this)" id='t2' value='/' >/</button>      
+<script>
+function getButtonText(button){
+ var text=button.getAttribute("value");
+ var str=document.getElementById("res").value;
+if(text=='CE'){
+ str="";
+ }
+ else if(text=='C'){
+  str=str.substring(0,str.length-1);
+  }
+  else if(text=="="){
+  str=eval(str);
+  }
+  else{
+  str=str+text;
+  }
+   document.getElementById("res").value=str;
+} 
+</script>
+</body>
+</html>
+
+
