@@ -1,0 +1,62 @@
+import java.util.*;
+public class Binarysearch{
+public static int binarywithoutrecursion(int a[],int n,int k){
+int lb=0;
+int ub=n-1;
+while(lb<=ub){
+int mid=(lb+ub)/2;
+if(a[mid]==k)
+return mid;
+else if(a[mid]>k)
+ub=mid-1;
+else
+lb=mid+1;
+}
+return -1;
+
+}
+public static int binarywithrecursion(int a[],int l,int u,int k){
+if(l<=u){
+int mid=(l+u)/2;
+if(a[mid]==k)
+return mid;
+else if(a[mid]>k)
+return binarywithrecursion(a,l,mid-1,k);
+else
+return binarywithrecursion(a,mid+1,u,k);
+}
+return -1;
+}
+public static void main(String args[]){
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the no.of Elements");
+int n=sc.nextInt();
+int a[];
+a=new int[n];
+System.out.println("enter the elements one by one");
+for(int i=0;i<n;i++)
+a[i]=sc.nextInt();
+System.out.println("enter the key");
+int k=sc.nextInt();
+System.out.println("1.BinarySearch with Recursion 2.BinarySearch without Recursion");
+int ch=sc.nextInt();
+switch(ch){
+case 1:
+    int result=binarywithoutrecursion(a,n,k);
+    if(result==-1)
+    System.out.println("Element not found");
+    else
+    System.out.println("Element found at position"+result);  
+    break;
+  case 2:
+   int result1=binarywithrecursion(a,0,n-1,k);
+    if(result1==-1)
+    System.out.println("Element not found");
+    else
+    System.out.println("Element found at position"+result1);  
+    break;
+  }
+  }
+  }
+  
+  
